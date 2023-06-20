@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/laravel', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    return "Ola, seja bem vindo ao Laravel";
+});
+
+Route::get('/sobre-nos', function () {
+    return "Sobre Nós";
+});
+
+Route::get('/contato', function () {
+    return "Contato";
 });
