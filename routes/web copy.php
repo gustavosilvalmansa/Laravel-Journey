@@ -43,3 +43,26 @@ Route::get('/contato2/{nome}/{categoria_id}', function(string $nome, int $catego
     echo "Categoria ID: $categoria <br>";
 
 })->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
+
+Route::get('/rota1', function(){
+    echo "Rota 1";
+})->name('site.rota1');
+
+/*
+Route::get('/rota2', function(){
+    echo "Rota 2";
+})->name('site.rota2');
+*/
+Route::redirect('/rota2', '/rota1');
+
+
+
+//Second way 
+Route::get('/rota1', function(){
+    echo "Rota 1";
+})->name('site.rota1');
+
+
+Route::get('/rota2', function(){
+    return redirect()->route('site.rota1');
+})->name('site.rota2');
