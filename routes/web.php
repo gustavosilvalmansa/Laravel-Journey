@@ -39,5 +39,10 @@ Route::get('/rota2', function(){
     return redirect()->route('site.rota1');
 })->name('site.rota2');
 
+Route::fallback(function(){
+    echo "<h1> Rota inexistente </h1>";
+    echo '<a href="'.route('site.index').'"> Voltar </a>';
+});
+
 
 
