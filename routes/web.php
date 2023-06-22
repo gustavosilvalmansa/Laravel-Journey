@@ -21,5 +21,13 @@ Route::get('/laravel', function () {
 Route::get('/','PrincipalController@principal');
 Route::get('/contato','ContatoController@contato');
 Route::get('/sobre-nos','SobreNosController@sobreNos');
+Route::get('/login', function(){return 'login';});
+
+Route::prefix('/app')->group(function(){
+    Route::get('/clientes', function(){return 'Clientes';});
+    Route::get('/fornecedores', function(){return 'fornecedores';});
+    Route::get('/produtos', function(){return 'produtos';});
+});
+
 
 
