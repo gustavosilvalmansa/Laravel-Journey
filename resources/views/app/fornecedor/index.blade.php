@@ -22,15 +22,19 @@
         <h3>Sem fornecedores</h3>
 @endif
 --}}
+@isset($fornecedores)
+    
+    Fornecedor: {{ $fornecedores[0]['nome']}}
+    <br>
+    Status: {{ $fornecedores[0]['status']}}
+    <br>
+    @if($fornecedores[0]['status'] == "N")
+        Fornecedor Inativo
+    @endif
+    
+    <br>
 
-Fornecedor: {{ $fornecedores[0]['nome']}}
-<br>
-Status: {{ $fornecedores[0]['status']}}
-<br>
-@if($fornecedores[0]['status'] == "N")
-    Fornecedor Inativo
-@endif
-<br>
-@unless($fornecedores[0]['status'] == "S")
-    Fornecedor Inativo
-@endunless
+    @unless($fornecedores[0]['status'] == "S")
+        Fornecedor Inativo
+    @endunless
+@endisset
