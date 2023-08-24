@@ -23,18 +23,26 @@
 @endif
 --}}
 @isset($fornecedores)
-    
-    Fornecedor: {{ $fornecedores[0]['nome']}}
+    Fornecedor: {{ $fornecedores[1]['nome']}}
     <br>
-    Status: {{ $fornecedores[0]['status']}}
+    Status: {{ $fornecedores[1]['status'] ?? 'Sem status'}}
     <br>
-    @if($fornecedores[0]['status'] == "N")
-        Fornecedor Inativo
-    @endif
-    
+    CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Sem cnpj'}}
+    <br>
+    Telefone: {{$fornecedores[1]['ddd']  ?? ''}} {{ $fornecedores[1]['telefone'] ?? 'Sem telefone'}}
     <br>
 
-    @unless($fornecedores[0]['status'] == "S")
-        Fornecedor Inativo
-    @endunless
+    @switch($fornecedores[1]['ddd'])
+        @case('51')
+            Porto Alegre - RS
+            @break
+        @case('11')
+          São Paulo - SP  
+            @break
+        @case('21')
+          Rio de janeiro - RJ
+            @break
+        @default
+            
+    @endswitch
 @endisset
