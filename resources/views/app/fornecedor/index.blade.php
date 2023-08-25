@@ -22,7 +22,7 @@
         <h3>Sem fornecedores</h3>
 @endif
 --}}
-@foreach ($fornecedores as $index => $fornecedor)
+@forelse ($fornecedores as $index => $fornecedor)
         Fornecedor: {{ $fornecedor['nome']}}
         <br>
         Status: {{ $fornecedor['status'] ?? 'Sem status'}}
@@ -46,5 +46,7 @@
     @endswitch 
    
     <hr>
-@endforeach
+    @empty
+    Sem fornecedores
+@endforelse
 
