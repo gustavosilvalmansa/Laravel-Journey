@@ -22,17 +22,16 @@
         <h3>Sem fornecedores</h3>
 @endif
 --}}
- @php $i = 0 @endphp
-@while (isset($fornecedores[$i]))
-        Fornecedor: {{ $fornecedores[$i]['nome']}}
+@foreach ($fornecedores as $index => $fornecedor)
+        Fornecedor: {{ $fornecedor['nome']}}
         <br>
-        Status: {{ $fornecedores[$i]['status'] ?? 'Sem status'}}
+        Status: {{ $fornecedor['status'] ?? 'Sem status'}}
         <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Sem cnpj'}}
+        CNPJ: {{ $fornecedor['cnpj'] ?? 'Sem cnpj'}}
         <br>
-        Telefone: {{$fornecedores[$i]['ddd']  ?? ''}} {{ $fornecedores[$i]['telefone'] ?? 'Sem telefone'}}
+        Telefone: {{$fornecedor['ddd']  ?? ''}} {{ $fornecedor['telefone'] ?? 'Sem telefone'}}
         <br>
-      @switch($fornecedores[$i]['ddd'])
+      @switch($fornecedor['ddd'])
         @case('51')
             Porto Alegre - RS
             @break
@@ -45,8 +44,7 @@
         @default
             
     @endswitch 
-    <br>
-    @php $i++ @endphp
+   
     <hr>
-@endwhile
+@endforeach
 
