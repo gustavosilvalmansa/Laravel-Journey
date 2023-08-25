@@ -22,17 +22,17 @@
         <h3>Sem fornecedores</h3>
 @endif
 --}}
-@isset($fornecedores)
-    Fornecedor: {{ $fornecedores[1]['nome']}}
-    <br>
-    Status: {{ $fornecedores[1]['status'] ?? 'Sem status'}}
-    <br>
-    CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Sem cnpj'}}
-    <br>
-    Telefone: {{$fornecedores[1]['ddd']  ?? ''}} {{ $fornecedores[1]['telefone'] ?? 'Sem telefone'}}
-    <br>
-
-    @switch($fornecedores[1]['ddd'])
+ 
+@for ($i = 0;  isset($fornecedores[$i]); $i++)
+        Fornecedor: {{ $fornecedores[$i]['nome']}}
+        <br>
+        Status: {{ $fornecedores[$i]['status'] ?? 'Sem status'}}
+        <br>
+        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Sem cnpj'}}
+        <br>
+        Telefone: {{$fornecedores[$i]['ddd']  ?? ''}} {{ $fornecedores[$i]['telefone'] ?? 'Sem telefone'}}
+        <br>
+      @switch($fornecedores[$i]['ddd'])
         @case('51')
             Porto Alegre - RS
             @break
@@ -44,5 +44,9 @@
             @break
         @default
             
-    @endswitch
-@endisset
+    @endswitch  
+    <br>
+    {{ $i }}
+    <hr>
+@endfor
+
