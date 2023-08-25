@@ -22,8 +22,8 @@
         <h3>Sem fornecedores</h3>
 @endif
 --}}
- 
-@for ($i = 0;  isset($fornecedores[$i]); $i++)
+ @php $i = 0 @endphp
+@while (isset($fornecedores[$i]))
         Fornecedor: {{ $fornecedores[$i]['nome']}}
         <br>
         Status: {{ $fornecedores[$i]['status'] ?? 'Sem status'}}
@@ -44,9 +44,9 @@
             @break
         @default
             
-    @endswitch  
+    @endswitch 
     <br>
-    {{ $i }}
+    @php $i++ @endphp
     <hr>
-@endfor
+@endwhile
 
