@@ -23,6 +23,8 @@
 @endif
 --}}
 @forelse ($fornecedores as $index => $fornecedor)
+    Iteração atual: {{ $loop->iteration }}
+        <br>
         Fornecedor: {{ $fornecedor['nome']}}
         <br>
         Status: {{ $fornecedor['status'] ?? 'Sem status'}}
