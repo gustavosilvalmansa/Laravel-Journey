@@ -24,6 +24,12 @@
 --}}
 @forelse ($fornecedores as $index => $fornecedor)
     Iteração atual: {{ $loop->iteration }}
+    <br>
+    Primeira {{ $loop->first }}
+    <br>
+    Ultima {{ $loop->last }}
+    <br>
+    Total {{ $loop->count}}
         <br>
         Fornecedor: {{ $fornecedor['nome']}}
         <br>
