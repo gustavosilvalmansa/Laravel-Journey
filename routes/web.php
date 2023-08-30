@@ -20,6 +20,8 @@ Route::get('/laravel', function () {
 //Call controllers
 Route::get('/','PrincipalController@principal')->name('site.index');
 Route::get('/contato','ContatoController@contato')->name('site.contato');
+Route::post('/contato','ContatoController@contato')->name('site.contato');
+
 Route::get('/sobre-nos','SobreNosController@sobreNos')->name('site.sobrenos');
 Route::get('/login', function(){return 'login';})->name('site.login');
 
